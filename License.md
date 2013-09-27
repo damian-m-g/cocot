@@ -1,1 +1,1 @@
- Este software puede ser utilizado sin cargo monetario(gratis) por el usuario. No se puede vender, no se puede obtener dinero de el. En el caso de que se distribuya públicamente por favor mencionarme como autor del mismo, gracias. IgorJorobus.
+ This software can be used without monetary charge(free) by the user. Can not be sold, can't get money from it. In case you want to distribute it around please mention me, thank you. IgorJorobus.

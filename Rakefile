@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 #necesario para ejecutar los tests de minitest
 require 'rake/testtask'
 #necesario para ejecutar los tests de cucumber
@@ -14,18 +16,12 @@ Rake::TestTask.new do |t|
 end
 
 #tarea para ejecutar los tests de cucumber con `cucumber`
-Cucumber::Rake::Task.new do |t|
-  #opciones de cucumber a correr
-  t.cucumber_opts = %w{--format pretty --color}
-end
+Cucumber::Rake::Task.new
 
 #tarea para ejecutar cucumber wip(work in progress) con 'rake cucumber_wip'
 desc 'Ejecuta cucumber wip'
 task :cucumber_wip do
-  Cucumber::Rake::Task.new do |t|
-    #opciones de rspec a correr
-    t.rspec_opts = %w{--format pretty --color --wip @wip:3}
-  end
+  system('cucumber --format progress --color --wip --tags @wip:3')
 end
 
 #tarea para ejecutar todos los tests de rspec con `rake spec`
@@ -39,3 +35,8 @@ task :rdoc do
   system('rdoc --all --tab-width=1 --format=darkfish --op=doc --force-output')
 end
 
+desc 'Genera data/contenido_de_archivos.cocot'
+task :generar_contenido_de_archivos do
+  require_relative('lib/cocot/salvador_de_contenidos')
+  SalvadorDeContenidos.new.salvar_contenido_de_archivos
+end
