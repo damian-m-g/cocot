@@ -8,6 +8,11 @@ It supposes that you...
 
  use RSpec and Cucumber for BDD developing, so it creates the conventional files and folders for work with.
 
+How can I install it?
+-----------------
+
+ By rubygems with `gem install cocot`.
+
 How can I use it?
 -----------------
 
