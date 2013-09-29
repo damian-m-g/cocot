@@ -48,10 +48,10 @@ Skeleton
  |        support\
  |        |       env.rb
  lib\
- |   proyect*
+ |   proyect*\
  |   proyect*.rb
  spec\
- |    proyect*
+ |    proyect*\
  |    spec_helper.rb
  Changelog.md
  Gemfile
