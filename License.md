@@ -1,10 +1,10 @@
-Copyright (c) 2013 cocot
+Copyright (c) 2015 cocot
 
  Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
 the Software with the rights to use, copy, modify, merge, publish and distribute.
  This software can not be sold, can't get money from it. In case you want to 
-distribute it around please mention the author, thank you.
+distribute it around please mention the author.
 
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS

@@ -42,8 +42,14 @@ Característica: el usuario ingresa un comando y obtiene una respuesta.
 
   Escenario: arranco el programa satisfactoriamente.
     Cuando ejecuto el comando: "cocot ProyectoFu",
-    Entonces debo recibir en consola: "Building skeletal structure for ProyectoFu.",
+    Entonces debo recibir en consola: "Building skeletal structure for ProyectoFu.".
 
   Escenario: arranco el programa satisfactoriamente.
     Cuando ejecuto el comando: "cocot 'Proyecto Fu Fu'", cocot entiende que el nombre del proyecto será "Proyecto Fu Fu",
-    Entonces debo recibir en consola: "Building skeletal structure for Proyecto Fu Fu.",
+    Entonces debo recibir en consola: "Building skeletal structure for Proyecto Fu Fu.".
+
+  @wip
+  Escenario: paso la opción --full.
+    Cuando ejecuto el comando: "cocot --full ProyectoFu",
+    Entonces debo recibir en consola: "Building skeletal structure for ProyectoFu",
+    Y debo ver generada además de las carpetas convencionales: './data/', './share/' y './ext/'.

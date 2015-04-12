@@ -3,23 +3,50 @@
 class JuzgadorDeArgumentos
 
   ERRORES_CONOCIDOS = {ningun_argumento: "Error: cocot needs to know the name of the further proyect. `cocot '<name_of_the_proyect>'`.\n", \
-    dos_o_mas_argumentos_como_nombre: "Error: cocot just need one argument: the name of the further proyect. If its name have more than a word you must put these inside ''.\n", \
-    ayuda_y_esqueletizado_invocados_a_la_vez: "Error: what do you want to do? invoke the help or skeletonize? You can't do both things.\n"}
+    dos_o_mas_argumentos_como_nombre: "Error: cocot just need one argument: the name of the further proyect. If its name have more than a word you must put these inside "".\n"}
+
+  attr_reader :full, :modo
 
   #@param argumentos [Array].
   def juzgar_argumentos(argumentos)
     if argumentos.length.==(0)
       @error_presente_en_argumentos = :ningun_argumento #: Symbol
-    elsif ((argumentos.length).!=(cantidad_de_argumentos_sin_help = (argumentos.select {|arg| arg.!=('--help')}.length))) && (argumentos.!=(['--help']))
-      @error_presente_en_argumentos = :ayuda_y_esqueletizado_invocados_a_la_vez
-    elsif cantidad_de_argumentos_sin_help.>(1)
-      @error_presente_en_argumentos = :dos_o_mas_argumentos_como_nombre
-    elsif argumentos[0].==('--help')
+    elsif argumentos.include?('--help')
       @ayuda_solicitada = true
     else
-      @nombre_del_proyecto = argumentos[0]
+      # voy a limpiar los argumentos opciones para que me quede(n) el potencial nombre del proyecto
+      if(_argumentos = argumentos.select {|i| i[0..1].!=('--')}).length == 1
+        @full = \
+          if argumentos.include?('--full')
+            ::COCOT.salida.escribir("\"Full\" option detected.\n")
+            true
+          else
+            false
+          end
+        @modo = \
+          if argumentos.include?('--rspec-only')
+            ::COCOT.salida.escribir("\"RSpec only\" option detected.\n")
+            '--rspec-only'
+          elsif argumentos.include?('--cucumber-only')
+            ::COCOT.salida.escribir("\"Cucumber only\" option detected.\n")
+            '--cucumber-only'
+          elsif argumentos.include?('--minitest-only')
+            ::COCOT.salida.escribir("\"Minitest only\" option detected.\n")
+            '--minitest-only'
+          elsif argumentos.include?('--clean')
+            ::COCOT.salida.escribir("\"Clean\" option detected.\n")
+            '--clean'
+          else
+            ::COCOT.salida.escribir("Attempting to make a normal instalation(RSpec and Cucumber support).\n")
+            nil
+          end
+        @nombre_del_proyecto = _argumentos[0].strip
+      else
+        @error_presente_en_argumentos = :dos_o_mas_argumentos_como_nombre #: Symbol
+      end
     end
   end
+
 
   def hubo_algun_error?
     true if @error_presente_en_argumentos

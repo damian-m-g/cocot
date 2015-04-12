@@ -3,7 +3,7 @@
 #Clase principal de la aplicación.
 class Cocot
 
-  attr_reader :salida
+  attr_reader :salida, :juzgador_de_argumentos
 
   def initialize
     @salida = SalidaEstándar.new($stdout)
@@ -56,7 +56,7 @@ class Cocot
   end
 
   def mostrar_ayuda_en_pantalla
-    msj_de_ayuda = "cocot builds the skeleton layout of your BDD proyects. You just have to give him the name of your proyect like this: `cocot \"name of the proyect\"`.\n"
+    msj_de_ayuda = " cocot builds the skeleton layout of your BDD proyects.\n\n You just have to give him the name of your proyect like this: `cocot \"name of the proyect\"`.\n\n You can pass around these options:\n\n --full\t\t\tBuild extra folders suchs as \"data\", \"share\" and \"ext\".\n\n The next options works as solo and can be combined with previous one:\n\n --rspec-only\t\tStandard skeleton + folders and files needed to work with RSpec.\n --cucumber-only\tStandard skeleton + folders and files needed to work with Cucumber.\n --minitest-only\tStandard skeleton + folders and files needed to work with minitest.\n --clean\t\tStandard skeleton.\n\n If you don't use any of the previous 4 options cocot will build the standard skeleton plus folders and files needed to work with Cucumber and RSpec."
     @salida.escribir(msj_de_ayuda)
   end
 end

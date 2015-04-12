@@ -62,3 +62,27 @@ end
 Dado(/^que existe la carpeta "([^"]*)" en el directorio actual,$/) do |carpeta|
   Dir.exists?(carpeta).should be true
 end
+
+Entonces(/^debo ver generada además de las carpetas convencionales: '\.\/data\/', '\.\/share\/' y '\.\/ext\/'\.$/) do
+  nombre_del_proyecto = 'ProyectoFu'
+  #si estoy dentro del directorio del proyecto...
+  if Dir.getwd[(-(nombre_del_proyecto.length))..-1].==(nombre_del_proyecto)
+    existen_carpetas_extras?.should be true
+  else
+    #si no lo estoy me paso
+    Dir.chdir('./ProyectoFu')
+    existen_carpetas_extras?.should be true
+    #terminado el test..
+    Dir.chdir('..')
+  end
+end
+
+#metodo helper del anterior step definition
+def existen_carpetas_extras?
+  archivos_en_wd = Dir['./*'] #: Array
+  if (archivos_en_wd.include?('./data')) and (archivos_en_wd.include?('./share')) and (archivos_en_wd.include?('./ext'))
+    true
+  else
+    false
+  end
+end

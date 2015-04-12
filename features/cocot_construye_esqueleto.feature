@@ -6,7 +6,6 @@ Característica: cocot construye el esqueleto del proyecto.
   como desarrollador,
   quiero poder lograr que cocot construya el esqueleto del nuevo proyecto en la ruta actual desde donde se está ejecutando la aplicación.
 
-  @wip
   Escenario: genero el árbol de carpetas.
     Dado que el usuario ingresó correctamente el comando para esqueletizar su nuevo proyecto, por ejemplo: "cocot Proyecto",
     Cuando origino sus carpetas,
