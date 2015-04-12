@@ -26,29 +26,29 @@ Gemfile
 Rakefile
 --------
 
- **cocot** packs few pre-defined **rake** tasks on standard mode:
+**cocot** packs few pre-defined **rake** tasks on standard mode:
 
- * `rake cucumber` : same like `cucumber`
- * `rake cucumber_wip` : same like `cucumber --format progress --color --wip --tags @wip:3`, specially for order
- * `rake spec` : same like `spec --color`
- * `rake test` : run minitest tests
- * `rake rdoc` : same like `rdoc --all --tab-width=1 --format=darkfish --op=doc --force-output`, create a doc folder with **RDoc** documentation
+* `rake cucumber` : same like `cucumber`
+* `rake cucumber_wip` : same like `cucumber --format progress --color --wip --tags @wip:3`, specially for order
+* `rake spec` : same like `spec --color`
+* `rake test` : run minitest tests
+* `rake rdoc` : same like `rdoc --all --tab-width=1 --format=darkfish --op=doc --force-output`, create a doc folder with **RDoc** documentation
 
- If you pass some option(see below) to the program, the rake task list may be reduced.
+If you pass some option(see below) to the program, the rake task list may be reduced.
 
 Options
 -------
 
- Version 1.1.0 introduces few nice options:
+Version 1.1.0 introduces few nice options:
 
- * **--full** Builds these extra-folders: "share", "ext" and "data". If your project is kind of big, you may use them for order.
+* **--full** Builds these extra-folders: "share", "ext" and "data". If your project is kind of big, you may use them for order.
 
- Next ones can be played as solo optionally in conjunction with the above one:
+Next ones can be played as solo optionally in conjunction with the above one:
 
- * **--rspec-only** Builds the standard skeleton minus the folders and files related to Cucumber.
- * **--cucumber-only** Builds the standard skeleton minus the folders and files related to RSpec.
- * **--minitest-only** Builds the standard skeleton without the support for RSpec and Cucumber and adds the folder "test" with the purpose of placing minitest tests there.
- * **--clean** Builds the standard skeleton without the support for RSpec and Cucumber. This option may be fine for very small projects, which will have no unit testing at all.
+* **--rspec-only** Builds the standard skeleton minus the folders and files related to Cucumber.
+* **--cucumber-only** Builds the standard skeleton minus the folders and files related to RSpec.
+* **--minitest-only** Builds the standard skeleton without the support for RSpec and Cucumber and adds the folder "test" with the purpose of placing minitest tests there.
+* **--clean** Builds the standard skeleton without the support for RSpec and Cucumber. This option may be fine for very small projects, which will have no unit testing at all.
 
 Standard skeleton
 -----------------
