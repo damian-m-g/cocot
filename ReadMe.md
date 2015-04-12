@@ -6,7 +6,7 @@ cocot
 It supposes that you...
 -----------------------
 
- may use **RSpec** and/or **Cucumber** and/or **minitest** for **BDD** developing, so it creates the conventional files and folders for work with.
+ may use **RSpec** and/or **Cucumber** and/or **minitest** for **BDD/TDD** developing, so it creates the conventional files and folders for work with.
 
 How can I install it?
 -----------------
@@ -80,7 +80,7 @@ Standard skeleton
  *proyect is replaced by the name of your proyect
 
 
-NOTES
+Notes
 -----
 
  Only tested on Windows. Should work in most operative systems.
