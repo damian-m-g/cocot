@@ -76,7 +76,7 @@ end
 
 desc 'to generate RDoc documentation'
 task :rdoc do
-  system('rdoc --all --tab-width=1 --format=darkfish --op=doc --force-output')
+  system('rdoc --all --tab-width=1 --force-output --main="ReadMe.md" --exclude="bin" --exclude="data" --exclude="ext" --exclude="share" --exclude="doc" --exclude="features" --exclude="spec" --exclude="cocot.gemspec" --exclude="Gemfile" --exclude="Gemfile.lock" --exclude="Rakefile"')
 end
 STR
 
@@ -95,7 +95,7 @@ end
 
 desc 'to generate RDoc documentation'
 task :rdoc do
-  system('rdoc --all --tab-width=1 --format=darkfish --op=doc --force-output')
+  system('rdoc --all --tab-width=1 --force-output --main="ReadMe.md" --exclude="bin" --exclude="data" --exclude="ext" --exclude="share" --exclude="doc" --exclude="spec" --exclude="cocot.gemspec" --exclude="Gemfile" --exclude="Gemfile.lock" --exclude="Rakefile"')
 end
 STR
 
@@ -118,7 +118,7 @@ end
 
 desc 'to generate RDoc documentation'
 task :rdoc do
-  system('rdoc --all --tab-width=1 --format=darkfish --op=doc --force-output')
+  system('rdoc --all --tab-width=1 --force-output --main="ReadMe.md" --exclude="bin" --exclude="data" --exclude="ext" --exclude="share" --exclude="doc" --exclude="features" --exclude="cocot.gemspec" --exclude="Gemfile" --exclude="Gemfile.lock" --exclude="Rakefile"')
 end
 STR
 
@@ -137,7 +137,7 @@ end
 
 desc 'to generate RDoc documentation'
 task :rdoc do
-  system('rdoc --all --tab-width=1 --format=darkfish --op=doc --force-output')
+  system('rdoc --all --tab-width=1 --force-output --main="ReadMe.md" --exclude="bin" --exclude="data" --exclude="ext" --exclude="share" --exclude="doc" --exclude="test" --exclude="cocot.gemspec" --exclude="Gemfile" --exclude="Gemfile.lock" --exclude="Rakefile"')
 end
 STR
 
@@ -147,6 +147,6 @@ COCOT::CONTENIDO_DE_ARCHIVOS[:rakefile_clean] = \
 
 desc 'to generate RDoc documentation'
 task :rdoc do
-  system('rdoc --all --tab-width=1 --format=darkfish --op=doc --force-output')
+  system('rdoc --all --tab-width=1 --force-output --main="ReadMe.md" --exclude="bin" --exclude="data" --exclude="ext" --exclude="share" --exclude="doc" --exclude="cocot.gemspec" --exclude="Gemfile" --exclude="Gemfile.lock" --exclude="Rakefile"')
 end
 STR

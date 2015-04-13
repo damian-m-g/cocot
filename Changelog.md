@@ -1,3 +1,8 @@
+1.1.1
+-----
+
+* Changed :rdoc rake task in Rakefile generated. Documentation now output properly: ignoring cucumber, rspec and minitest code; also ignoring irrelevant folders such as "bin", "data", "doc", "ext" and "share". The only files looked for RDoc on main working directory are "Changelog.md", "License.md" and "ReadMe.md". "ReadMe.md" is now settled as the main content to show when you open "index.html" RDoc generated file.
+
 1.1.0
 -----
 * Changed LICENSE.md

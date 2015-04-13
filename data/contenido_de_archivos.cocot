@@ -15,7 +15,7 @@ gem 'cucumber'
 gem 'rake'
 gem 'rdoc'
 gem 'bundler'
-;T:rakefileI"v#necessary for minitest tests
+;T:rakefileI"C#necessary for minitest tests
 require 'rake/testtask'
 #necessary for cucumber tests
 require 'cucumber/rake/task'
@@ -48,9 +48,9 @@ end
 
 desc 'to generate RDoc documentation'
 task :rdoc do
-  system('rdoc --all --tab-width=1 --format=darkfish --op=doc --force-output')
+  system('rdoc --all --tab-width=1 --force-output --main="ReadMe.md" --exclude="bin" --exclude="data" --exclude="ext" --exclude="share" --exclude="doc" --exclude="features" --exclude="spec" --exclude="cocot.gemspec" --exclude="Gemfile" --exclude="Gemfile.lock" --exclude="Rakefile"')
 end
-;T:rakefile_rspec_onlyI"#necessary for rspec tests
+;T:rakefile_rspec_onlyI"7#necessary for rspec tests
 require 'rspec/core/rake_task'
 
 #################TASKS#######################
@@ -63,9 +63,9 @@ end
 
 desc 'to generate RDoc documentation'
 task :rdoc do
-  system('rdoc --all --tab-width=1 --format=darkfish --op=doc --force-output')
+  system('rdoc --all --tab-width=1 --force-output --main="ReadMe.md" --exclude="bin" --exclude="data" --exclude="ext" --exclude="share" --exclude="doc" --exclude="spec" --exclude="cocot.gemspec" --exclude="Gemfile" --exclude="Gemfile.lock" --exclude="Rakefile"')
 end
-;T:rakefile_cucumber_onlyI"ú#necessary for cucumber tests
+;T:rakefile_cucumber_onlyI"X#necessary for cucumber tests
 require 'cucumber/rake/task'
 
 #################TASKS#######################
@@ -82,9 +82,9 @@ end
 
 desc 'to generate RDoc documentation'
 task :rdoc do
-  system('rdoc --all --tab-width=1 --format=darkfish --op=doc --force-output')
+  system('rdoc --all --tab-width=1 --force-output --main="ReadMe.md" --exclude="bin" --exclude="data" --exclude="ext" --exclude="share" --exclude="doc" --exclude="features" --exclude="cocot.gemspec" --exclude="Gemfile" --exclude="Gemfile.lock" --exclude="Rakefile"')
 end
-;T:rakefile_minitest_onlyI"…#necessary for minitest tests
+;T:rakefile_minitest_onlyI"Å#necessary for minitest tests
 require 'rake/testtask'
 
 #################TASKS#######################
@@ -97,12 +97,12 @@ end
 
 desc 'to generate RDoc documentation'
 task :rdoc do
-  system('rdoc --all --tab-width=1 --format=darkfish --op=doc --force-output')
+  system('rdoc --all --tab-width=1 --force-output --main="ReadMe.md" --exclude="bin" --exclude="data" --exclude="ext" --exclude="share" --exclude="doc" --exclude="test" --exclude="cocot.gemspec" --exclude="Gemfile" --exclude="Gemfile.lock" --exclude="Rakefile"')
 end
-;T:rakefile_cleanI"∂#################TASKS#######################
+;T:rakefile_cleanI"]#################TASKS#######################
 
 desc 'to generate RDoc documentation'
 task :rdoc do
-  system('rdoc --all --tab-width=1 --format=darkfish --op=doc --force-output')
+  system('rdoc --all --tab-width=1 --force-output --main="ReadMe.md" --exclude="bin" --exclude="data" --exclude="ext" --exclude="share" --exclude="doc" --exclude="cocot.gemspec" --exclude="Gemfile" --exclude="Gemfile.lock" --exclude="Rakefile"')
 end
 ;T

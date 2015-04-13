@@ -32,7 +32,7 @@ end
 
 desc 'Genera documentación en RDoc'
 task :rdoc do
-  system('rdoc --all --tab-width=1 --format=darkfish --op=doc --force-output')
+  system('rdoc --all --tab-width=1 --force-output --main="ReadMe.md" --exclude="bin" --exclude="data" --exclude="doc" --exclude="features" --exclude="spec" --exclude="cocot.gemspec" --exclude="Gemfile" --exclude="Gemfile.lock" --exclude="Rakefile"')
 end
 
 desc 'Genera data/contenido_de_archivos.cocot'
