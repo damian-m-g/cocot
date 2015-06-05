@@ -21,7 +21,7 @@ class ConstructorDeEsqueleto
     if !(existe_carpeta_de_mismo_nombre_que_este_proyecto_en_el_directorio_actual?)
       crear_carpeta_del_proyecto()
     else
-      @inconveniente = "Skeletal structure can't be build. There's an existing folder in the working directory called #{@nombre_del_proyecto}.\n"
+      @inconveniente = "Skeletal structure can't be built. There's an existing folder in the working directory called #{@nombre_del_proyecto}.\n"
       return false
     end
     #me voy a pasar a la carpeta creada
@@ -107,8 +107,8 @@ class ConstructorDeEsqueleto
         end
       end
     end
-    # por ultimo escribo el Rakefile
-    File.open('Rakefile', 'w+') do |archivo|
+    # re-escribo el Rakefile
+    File.open('Rakefile', 'w') do |archivo|
       case ::COCOT.juzgador_de_argumentos.modo
         when '--rspec-only'
           archivo.write(@contenido_de_archivos[:rakefile_rspec_only])
@@ -122,6 +122,21 @@ class ConstructorDeEsqueleto
           archivo.write(@contenido_de_archivos[:rakefile])
       end
     end
+    # re-escribo el Gemfile
+    File.open('Gemfile', 'w') do |archivo|
+      case ::COCOT.juzgador_de_argumentos.modo
+        when '--rspec-only'
+          archivo.write(@contenido_de_archivos[:gemfile_rspec_only])
+        when '--cucumber-only'
+          archivo.write(@contenido_de_archivos[:gemfile_cucumber_only])
+        when '--minitest-only'
+          archivo.write(@contenido_de_archivos[:gemfile_clean])
+        when '--clean'
+          archivo.write(@contenido_de_archivos[:gemfile_clean])
+        else
+          archivo.write(@contenido_de_archivos[:gemfile])
+      end
+    end
   end
 
   def existe_carpeta_de_mismo_nombre_que_este_proyecto_en_el_directorio_actual?
@@ -129,7 +144,7 @@ class ConstructorDeEsqueleto
   end
 
   def explicar_inconveniente
-    @inconveniente || "No hubo inconvenientes.\n"
+    @inconveniente || "No troubles.\n"
   end
 
   private

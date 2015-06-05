@@ -25,6 +25,6 @@ rescue => e
     warn(trace)
   end
   warn('###############################################################################################')
-  warn('Please provide me with this message in https://github.com/IgorJorobus/cocot/issues , thank you.')
+  warn('Please provide me with this message at https://github.com/IgorJorobus/cocot/issues , thank you.')
   warn('###############################################################################################')
 end

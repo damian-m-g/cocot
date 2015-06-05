@@ -63,6 +63,6 @@ class JuzgadorDeArgumentos
   end
 
   def cual_será_el_nombre_del_proyecto?
-    @nombre_del_proyecto || "No fue definido.\n"
+    @nombre_del_proyecto || "Not defined.\n"
   end
 end

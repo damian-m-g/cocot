@@ -1,3 +1,9 @@
+1.1.2
+-----
+
+* Fixed some misspelling on feedback.
+* Fixed issue in Gemfile generated. Even when you chosen --clean option, Gemfile tried to require rspec and cucumber gems, not anymore.
+
 1.1.1
 -----
 

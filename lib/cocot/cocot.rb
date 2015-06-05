@@ -47,7 +47,7 @@ class Cocot
     @constructor_de_esqueleto = ConstructorDeEsqueleto.new
     #si la siguiente acción tiene éxito devuelve true, de otra forma false, lo cual quiere decir que hubo un problema
     if @constructor_de_esqueleto.construir_esqueleto(@nombre_del_proyecto)
-      @salida.escribir("Structure builded. Have fun developing! :)\n")
+      @salida.escribir("Structure built. Have fun developing! :)\n")
       true
     else
       @salida.escribir(@constructor_de_esqueleto.explicar_inconveniente)

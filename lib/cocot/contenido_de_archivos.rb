@@ -30,12 +30,41 @@ require 'name_of_the_proyect'
 
 STR
 
-COCOT::CONTENIDO_DE_ARCHIVOS[:'Gemfile'] = \
+COCOT::CONTENIDO_DE_ARCHIVOS[:gemfile] = \
 <<STR
 source 'https://rubygems.org'
 
 gem 'rspec'
 gem 'cucumber'
+gem 'rake'
+gem 'rdoc'
+gem 'bundler'
+STR
+
+COCOT::CONTENIDO_DE_ARCHIVOS[:gemfile_rspec_only] = \
+<<STR
+source 'https://rubygems.org'
+
+gem 'rspec'
+gem 'rake'
+gem 'rdoc'
+gem 'bundler'
+STR
+
+COCOT::CONTENIDO_DE_ARCHIVOS[:gemfile_cucumber_only] = \
+<<STR
+source 'https://rubygems.org'
+
+gem 'cucumber'
+gem 'rake'
+gem 'rdoc'
+gem 'bundler'
+STR
+
+COCOT::CONTENIDO_DE_ARCHIVOS[:gemfile_clean] = \
+<<STR
+source 'https://rubygems.org'
+
 gem 'rake'
 gem 'rdoc'
 gem 'bundler'
