@@ -1,108 +1,168 @@
-{:bin/proyectI"H#!/usr/bin/env ruby
+{:bin/proyectI"H#!/usr/bin/env ruby
 
 require_relative '../lib/name_of_the_proyect'
-:ET:features/support/env.rbI"≠#if you respect the convention of a Ruby proyect layout then the next lines are fixed
+:ET:features/support/env.rbI"Æ# if you respect the convention of a Ruby proyect layout then the next lines are fixed
 $LOAD_PATH << File.expand_path('../../../lib', __FILE__)
 require 'name_of_the_proyect'
 ;T:lib/proyect.rbI"
 ;T:spec/spec_helper.rbI"%require 'name_of_the_proyect'
 
 
-;T:GemfileI"csource 'https://rubygems.org'
+;T:gemfileI"Ø# ruby '~>2.0'
 
-gem 'rspec'
-gem 'cucumber'
-gem 'rake'
-gem 'rdoc'
-gem 'bundler'
-;T:rakefileI"C#necessary for minitest tests
+source 'https://rubygems.org'
+
+group :development do
+  gem 'rspec'
+  gem 'cucumber'
+  gem 'rake'
+  gem 'bundler'
+  gem 'yard'
+end
+
+group :production do
+  
+end
+;T:gemfile_rspec_onlyI"û# ruby '~>2.0'
+
+source 'https://rubygems.org'
+
+group :development do
+  gem 'rspec'
+  gem 'rake'
+  gem 'bundler'
+  gem 'yard'
+end
+
+group :production do
+  
+end
+;T:gemfile_cucumber_onlyI"°# ruby '~>2.0'
+
+source 'https://rubygems.org'
+
+group :development do
+  gem 'cucumber'
+  gem 'rake'
+  gem 'bundler'
+  gem 'yard'
+end
+
+group :production do
+  
+end
+;T:gemfile_cleanI"ê# ruby '~>2.0'
+
+source 'https://rubygems.org'
+
+group :development do
+  gem 'rake'
+  gem 'bundler'
+  gem 'yard'
+end
+
+group :production do
+  
+end
+;T:rakefileI"]# necessary for minitest tests
 require 'rake/testtask'
-#necessary for cucumber tests
+# necessary for cucumber tests
 require 'cucumber/rake/task'
-#necessary for rspec tests
+# necessary for rspec tests
 require 'rspec/core/rake_task'
+# necessary for yardoc task
+require 'yard'
 
 #################TASKS#######################
 
-#to execute minitest tests with `rake test`
+# to execute minitest tests with `rake test`
 Rake::TestTask.new do |t|
-  #search recursively under the folder test for files called test*. You may have to create the folder manually.
+  # search recursively under the folder test for files called test*. You may have to create the folder manually.
   t.pattern = 'test/**/test*.rb'
 end
 
-#to execute cucumber tests with `rake cucumber`
+# to execute cucumber tests with `rake cucumber`
 Cucumber::Rake::Task.new
 
-#to execute cucumber wip(work in progress) with 'rake cucumber_wip'. It will kick you if you are working in more than 3 scenarios
-#remember to tag each wip scenarios with @wip above the Scenario keyword in the implicit *.feature
+# to execute cucumber wip(work in progress) with 'rake cucumber_wip'. It will kick you if you are working in more than 3 scenarios
+# remember to tag each wip scenarios with @wip above the Scenario keyword in the implicit *.feature
 desc 'Executes cucumber wip'
 task :cucumber_wip do
   system('cucumber --format progress --color --wip --tags @wip:3')
 end
 
-#to execute all RSpec tests with `rake spec`
+# to execute all RSpec tests with `rake spec`
 RSpec::Core::RakeTask.new do |t|
-  #opciones de rspec a correr
+  # rspec options to run
   t.rspec_opts = ['--color']
 end
 
-desc 'to generate RDoc documentation'
-task :rdoc do
-  system('rdoc --all --tab-width=1 --force-output --main="ReadMe.md" --exclude="bin" --exclude="data" --exclude="ext" --exclude="share" --exclude="doc" --exclude="features" --exclude="spec" --exclude="cocot.gemspec" --exclude="Gemfile" --exclude="Gemfile.lock" --exclude="Rakefile"')
-end
-;T:rakefile_rspec_onlyI"7#necessary for rspec tests
+# generate yard documentation
+YARD::Rake::YardocTask.new {|t|}
+;T:rakefile_rspec_onlyI"_# necessary for rspec tests
 require 'rspec/core/rake_task'
+# necessary for yardoc task
+require 'yard'
 
 #################TASKS#######################
 
-#to execute all RSpec tests with `rake spec`
+# to execute all RSpec tests with `rake spec`
 RSpec::Core::RakeTask.new do |t|
-  #opciones de rspec a correr
+  # rspec options to run
   t.rspec_opts = ['--color']
 end
 
-desc 'to generate RDoc documentation'
-task :rdoc do
-  system('rdoc --all --tab-width=1 --force-output --main="ReadMe.md" --exclude="bin" --exclude="data" --exclude="ext" --exclude="share" --exclude="doc" --exclude="spec" --exclude="cocot.gemspec" --exclude="Gemfile" --exclude="Gemfile.lock" --exclude="Rakefile"')
-end
-;T:rakefile_cucumber_onlyI"X#necessary for cucumber tests
+# generate yard documentation
+YARD::Rake::YardocTask.new {|t|}
+;T:rakefile_cucumber_onlyI"É# necessary for cucumber tests
 require 'cucumber/rake/task'
+# necessary for yardoc task
+require 'yard'
 
 #################TASKS#######################
 
-#to execute cucumber tests with `rake cucumber`
+# to execute cucumber tests with `rake cucumber`
 Cucumber::Rake::Task.new
 
-#to execute cucumber wip(work in progress) with 'rake cucumber_wip'. It will kick you if you are working in more than 3 scenarios
-#remember to tag each wip scenarios with @wip above the Scenario keyword in the implicit *.feature
+# to execute cucumber wip(work in progress) with 'rake cucumber_wip'. It will kick you if you are working in more than 3 scenarios
+# remember to tag each wip scenarios with @wip above the Scenario keyword in the implicit *.feature
 desc 'Executes cucumber wip'
 task :cucumber_wip do
   system('cucumber --format progress --color --wip --tags @wip:3')
 end
 
-desc 'to generate RDoc documentation'
-task :rdoc do
-  system('rdoc --all --tab-width=1 --force-output --main="ReadMe.md" --exclude="bin" --exclude="data" --exclude="ext" --exclude="share" --exclude="doc" --exclude="features" --exclude="cocot.gemspec" --exclude="Gemfile" --exclude="Gemfile.lock" --exclude="Rakefile"')
-end
-;T:rakefile_minitest_onlyI"Å#necessary for minitest tests
+# generate yard documentation
+YARD::Rake::YardocTask.new {|t|}
+;T:rakefile_minitest_onlyI"Ø# necessary for minitest tests
 require 'rake/testtask'
+# necessary for yardoc task
+require 'yard'
 
 #################TASKS#######################
 
-#to execute minitest tests with `rake test`
+# to execute minitest tests with `rake test`
 Rake::TestTask.new do |t|
-  #search recursively under the folder test for files called test*. You may have to create the folder manually.
+  # search recursively under the folder test for files called test*. You may have to create the folder manually.
   t.pattern = 'test/**/test*.rb'
 end
 
-desc 'to generate RDoc documentation'
-task :rdoc do
-  system('rdoc --all --tab-width=1 --force-output --main="ReadMe.md" --exclude="bin" --exclude="data" --exclude="ext" --exclude="share" --exclude="doc" --exclude="test" --exclude="cocot.gemspec" --exclude="Gemfile" --exclude="Gemfile.lock" --exclude="Rakefile"')
-end
-;T:rakefile_cleanI"]#################TASKS#######################
+# generate yard documentation
+YARD::Rake::YardocTask.new {|t|}
+;T:rakefile_cleanI"ö# necessary for yardoc task
+require 'yard'
 
-desc 'to generate RDoc documentation'
-task :rdoc do
-  system('rdoc --all --tab-width=1 --force-output --main="ReadMe.md" --exclude="bin" --exclude="data" --exclude="ext" --exclude="share" --exclude="doc" --exclude="cocot.gemspec" --exclude="Gemfile" --exclude="Gemfile.lock" --exclude="Rakefile"')
-end
+#################TASKS#######################
+
+# generate yard documentation
+YARD::Rake::YardocTask.new {|t|}
+;TI"README.md;TI"## name_of_the_project_upcased
+;TI"CHANGELOG.md;TI"D# Changelog  
+All notable changes to this project will be documented in this file.  
+  
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),  
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).  
+  
+## [0.1.0] - current_date  
+### Added  
+- Pristine version.
 ;T

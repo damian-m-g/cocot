@@ -40,3 +40,8 @@ task :generar_contenido_de_archivos do
   require_relative('lib/cocot/salvador_de_contenidos')
   SalvadorDeContenidos.new.salvar_contenido_de_archivos
 end
+
+desc 'Build gem'
+task :build_gem do
+  system('gem build cocot.gemspec')
+end

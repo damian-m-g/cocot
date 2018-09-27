@@ -11,7 +11,7 @@ class ConstructorDeEsqueleto
   SUBCARPETAS_CUCUMBER = %w{features features/support features/step_definitions}
   SUBCARPETAS_MINITEST = %w{test}
   SUBCARPETAS_FULL = %w{data share ext}
-  ARCHIVOS = %w{Changelog.md Gemfile Gemfile.lock License.md Rakefile ReadMe.md bin/proyect lib/proyect.rb}
+  ARCHIVOS = %w{CHANGELOG.md Gemfile Gemfile.lock LICENSE.md Rakefile README.md bin/proyect lib/proyect.rb}
   ARCHIVOS_RSPEC = %w{spec/spec_helper.rb}
   ARCHIVOS_CUCUMBER = %w{features/support/env.rb}
 
@@ -58,7 +58,6 @@ class ConstructorDeEsqueleto
       when nil
         crear_subcarpetas!(SUBCARPETAS_RSPEC)
         crear_subcarpetas!(SUBCARPETAS_CUCUMBER)
-      else
     end
     # chequeo si el usuario quiere las carpetas extras
     if ::COCOT.juzgador_de_argumentos.full then crear_subcarpetas!(SUBCARPETAS_FULL) end
@@ -103,7 +102,10 @@ class ConstructorDeEsqueleto
       if(File.exist?(_nombre_del_archivo))
         # existe, lo escribo
         File.open(_nombre_del_archivo, 'w+') do |archivo|
-          archivo.write(contenido.gsub('name_of_the_proyect', @nombre_del_proyecto))
+          content_to_write = contenido.gsub('name_of_the_proyect', @nombre_del_proyecto)
+          content_to_write.gsub!('name_of_the_project_upcased', @nombre_del_proyecto.upcase)
+          content_to_write.gsub!('current_date', Time.now.strftime('%Y-%m-%d'))
+          archivo.write(content_to_write)
         end
       end
     end

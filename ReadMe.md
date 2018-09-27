@@ -32,14 +32,14 @@ Rakefile
 * `rake cucumber_wip` : same like `cucumber --format progress --color --wip --tags @wip:3`, specially for order
 * `rake spec` : same like `spec --color`
 * `rake test` : run minitest tests
-* `rake rdoc` : same like `rdoc --all --tab-width=1 --format=darkfish --op=doc --force-output`, create a doc folder with **RDoc** documentation
+* `rake yard` : same like `yardoc`, create a doc folder with **Yard** documentation
 
 If you pass some option(see below) to the program, the rake task list may be reduced.
 
 Options
 -------
 
-Version 1.1.0 introduces few nice options:
+Version 1.1.0 introduced few nice options:
 
 * **--full** Builds these extra-folders: "share", "ext" and "data". If your project is kind of big, you may use them for order.
 
@@ -69,26 +69,20 @@ Standard skeleton
  spec\
  |    proyect*\
  |    spec_helper.rb
- Changelog.md
+ CHANGELOG.md
  Gemfile
  Gemfile.lock
- License.md
+ LICENSE.md
  Rakefile
- ReadMe.md
+ README.md
 </pre>
 
  *proyect is replaced by the name of your proyect
 
-
-Notes
------
-
- Only tested on Windows. Should work in most operative systems.
-
 License
 -------
 
-Copyright (c) 2015 cocot
+Copyright (c) 2018 cocot
 
  Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in

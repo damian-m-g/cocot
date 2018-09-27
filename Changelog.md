@@ -1,3 +1,15 @@
+1.1.3
+-----
+
+* ReadMe.md is no longer an empty file. Now it contains a title: the project name upcased.
+* ReadMe.md is now README.md to get adapted to VCS conventions.
+* Changelog.md is no longer an empty file. Now it has references to "Keep a CHANGELOG" file conventions and you're expected to get adapted to write good and consistent CHANGELOG files following that guideline.
+* Changelog.md is now CHANGELOG.md to get adapted to VCS conventions.
+* License.md is now LICENSE.md to get adapted to VCS conventions.
+* RDoc is pretty much dead and ugly compared to Yard on these days. Yard is supposed to be used now as documenting system. Because of that, it's now included inside any Gemfile as a :development dependency. The RDoc main rake task is now replaced by yard's main rake task.
+* The Gemfile got updated to separate what is :development dependencies from the :production dependencies. It also replaced rdoc for yard as documenting system dependency.
+* Better in-code comments. Before everything looked like #comment, now it contains a space before the first comment character, such as the Ruby conventions suggest.
+
 1.1.2
 -----
 
