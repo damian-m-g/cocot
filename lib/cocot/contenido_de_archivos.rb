@@ -32,7 +32,7 @@ STR
 
 COCOT::CONTENIDO_DE_ARCHIVOS[:gemfile] = \
 <<STR
-# ruby '~>2.0'
+# ruby '~>3.0'
 
 source 'https://rubygems.org'
 
@@ -40,7 +40,6 @@ group :development do
   gem 'rspec'
   gem 'cucumber'
   gem 'rake'
-  gem 'bundler'
   gem 'yard'
 end
 
@@ -51,14 +50,13 @@ STR
 
 COCOT::CONTENIDO_DE_ARCHIVOS[:gemfile_rspec_only] = \
 <<STR
-# ruby '~>2.0'
+# ruby '~>3.0'
 
 source 'https://rubygems.org'
 
 group :development do
   gem 'rspec'
   gem 'rake'
-  gem 'bundler'
   gem 'yard'
 end
 
@@ -69,14 +67,13 @@ STR
 
 COCOT::CONTENIDO_DE_ARCHIVOS[:gemfile_cucumber_only] = \
 <<STR
-# ruby '~>2.0'
+# ruby '~>3.0'
 
 source 'https://rubygems.org'
 
 group :development do
   gem 'cucumber'
   gem 'rake'
-  gem 'bundler'
   gem 'yard'
 end
 
@@ -87,13 +84,12 @@ STR
 
 COCOT::CONTENIDO_DE_ARCHIVOS[:gemfile_clean] = \
 <<STR
-# ruby '~>2.0'
+# ruby '~>3.0'
 
 source 'https://rubygems.org'
 
 group :development do
   gem 'rake'
-  gem 'bundler'
   gem 'yard'
 end
 
@@ -216,6 +212,16 @@ STR
 COCOT::CONTENIDO_DE_ARCHIVOS['README.md'] = \
 <<STR
 # name_of_the_project_upcased
+
+
+
+# Usage
+
+
+
+# Contact
+
+
 STR
 
 COCOT::CONTENIDO_DE_ARCHIVOS['CHANGELOG.md'] = \
@@ -226,7 +232,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),  
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).  
   
-## [0.1.0] - current_date  
+## [Unreleased] - current_date  
 ### Added  
 - Pristine version.
 STR

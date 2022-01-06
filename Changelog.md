@@ -1,3 +1,12 @@
+1.1.4
+-----
+
+* Gemfiles requirement for ruby version was updated to "~>3.0".
+* Requires of the bundler gem were dropped from Gemfiles since now it's bundled into Ruby standard libraries.
+* Requires of the rake gem were dropped from Gemfiles since now it's bundled into Ruby standard libraries.
+* Version "0.1.0" in the CHANGELOG was replaced for "Unreleased".
+* Added "Usage" and "Contact" info to the README template. 
+
 1.1.3
 -----
 
